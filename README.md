@@ -1,6 +1,6 @@
 # gentoo-overlay
 
-A small Gentoo overlay with two packages the main tree doesn't have: hacksaw, which selects a region of the screen, and shotgun, which takes the screenshot. Together they make a region screenshot to the clipboard in one key binding. Both are small Rust programs that need only libxcb or libX11 at runtime, where maim and slop bring libjpeg-turbo, libpng, libwebp and five more X libraries. The overlay is made for one laptop (Gentoo with dwm, as few packages as possible) and is in daily use there.
+A small Gentoo overlay with two packages the main tree doesn't have: hacksaw, which selects a region of the screen, and shotgun, which takes the screenshot. Together they make a region screenshot to the clipboard in one key binding. Both are small Rust programs: hacksaw needs only libxcb at runtime and shotgun nothing beyond libc (it speaks the X protocol itself), where maim and slop bring libjpeg-turbo, libpng, libwebp and five more X libraries. The overlay is made for one laptop (Gentoo with dwm, as few packages as possible) and is in daily use there.
 
 **Status:** in use on the target laptop: both packages build from these ebuilds (EAPI 8, cargo.eclass, crates fetched by Portage) and run there. amd64 only.
 
@@ -58,7 +58,7 @@ In dwm, a region straight to the clipboard on Alt+Shift+S:
 | | hacksaw | shotgun |
 |---|---|---|
 | Installed binary | 840 kB | 726 kB |
-| Runtime libraries (besides libc) | libxcb | libX11 (through x11rb) |
+| Runtime libraries (besides libc, libgcc_s) | libxcb, libxcb-shape, libxcb-xkb | none (x11rb's own X protocol code) |
 
 ## Verification
 
