@@ -2,7 +2,7 @@
 
 A small Gentoo overlay with two packages the main tree doesn't have: hacksaw, which selects a region of the screen, and shotgun, which takes the screenshot. Together they make a region screenshot to the clipboard in one key binding. Both are small Rust programs: hacksaw needs only libxcb at runtime and shotgun nothing beyond libc (it speaks the X protocol itself), where maim and slop bring libjpeg-turbo, libpng, libwebp and five more X libraries. The overlay is made for one laptop (Gentoo with dwm, as few packages as possible) and is in daily use there.
 
-**Status:** in use on the target laptop: both packages build from these ebuilds (EAPI 8, cargo.eclass, crates fetched by Portage) and run there. amd64 only.
+**Status:** no longer installed on the target laptop: [xregion](https://github.com/r3clusionn/xregion) and `grab` (from [scripts](https://github.com/r3clusionn/scripts), which also works at X depth 30) replace hacksaw and shotgun there. Both packages built from these ebuilds (EAPI 8, cargo.eclass, crates fetched by Portage) and ran there until then. amd64 only.
 
 ![Terminal output on a dark background: "emerge -pv --nodeps hacksaw shotgun" lists x11-misc/hacksaw-1.0.4 and media-gfx/shotgun-2.5.1 from the overlay; "ls -l" shows /usr/bin/hacksaw at 840520 bytes and /usr/bin/shotgun at 725752 bytes; then the dwm binding for Alt+Shift+S: g=$(hacksaw) && shotgun -g "$g" - | xclip -selection clipboard -t image/png](docs/images/emerge.png)
 
